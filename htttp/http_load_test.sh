@@ -1,1 +1,1 @@
-ab -n 1000 -c 10 -T "application/json" -p request.json http://localhost:8080/orders
+seq 1 100 | xargs -I % -P 5 curl -X POST http://localhost:8080/orders -H "Content-Type: application/json" -d '{"product": "test", "quantity": 1}'
